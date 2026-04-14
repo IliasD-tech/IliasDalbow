@@ -1,1 +1,492 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ilias Dalbow — Social Media & Marketing</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #7F77DD;
+      --purple-light: #AFA9EC;
+      --purple-xlight: #EEEDFE;
+      --bg: #ffffff;
+      --bg-secondary: #f5f5f3;
+      --text: #1a1a1a;
+      --text-secondary: #555;
+      --text-tertiary: #999;
+      --border: rgba(0,0,0,0.12);
+      --border-secondary: rgba(0,0,0,0.22);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1a1a;
+        --bg-secondary: #242424;
+        --text: #f0f0f0;
+        --text-secondary: #aaa;
+        --text-tertiary: #666;
+        --border: rgba(255,255,255,0.12);
+        --border-secondary: rgba(255,255,255,0.22);
+        --purple-xlight: #2e2b55;
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 0.5px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    .nav-name { font-size: 17px; font-weight: 500; letter-spacing: -0.3px; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* SECTIONS */
+    section { padding: 4rem 2rem; max-width: 860px; margin: 0 auto; }
+
+    /* HERO */
+    .hero {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .hero-tag {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+    }
+    .hero-name {
+      font-size: 52px;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-name span { color: var(--purple); }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* BUTTONS */
+    .btn-primary {
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 0.5px solid var(--border-secondary);
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-ghost:hover { background: var(--bg-secondary); }
+
+    /* SECTION HEADERS */
+    h2 {
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .about-text { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .about-text p + p { margin-top: 1rem; }
+    .skills-list { display: flex; flex-direction: column; gap: 8px; }
+    .skill-tag {
+      background: var(--bg-secondary);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 8px 12px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .skill-tag strong { color: var(--text); font-weight: 500; }
+    .skill-category-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--purple); font-weight: 500; margin-bottom: 2px; margin-top: 4px; }
+
+    /* WORK */
+    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .work-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .work-card:hover { border-color: var(--border-secondary); }
+    .work-card.featured { grid-column: 1 / -1; border-color: var(--purple-light); }
+    .work-label {
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.5rem;
+    }
+    .work-title { font-size: 16px; font-weight: 500; margin-bottom: 0.5rem; }
+    .work-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .work-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 1rem; }
+    .tag {
+      font-size: 11px;
+      background: var(--bg-secondary);
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: var(--text-secondary);
+    }
+
+    /* SOCIAL LINKS */
+    .social-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem; }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 0.5px solid var(--border-secondary);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .social-btn:hover { background: var(--bg-secondary); color: var(--text); }
+    .social-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* EXPERIENCE */
+    .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-date { font-size: 12px; color: var(--text-tertiary); padding-top: 3px; }
+    .exp-role { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+    .exp-company { font-size: 13px; color: var(--purple); margin-bottom: 6px; }
+    .exp-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+    .exp-bullets { list-style: none; margin-top: 6px; display: flex; flex-direction: column; gap: 5px; }
+    .exp-bullets li { font-size: 13px; color: var(--text-secondary); line-height: 1.6; padding-left: 14px; position: relative; }
+    .exp-bullets li::before { content: "–"; position: absolute; left: 0; color: var(--purple); }
+
+    /* CONTACT */
+    .contact-box {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .contact-box h3 {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.75rem;
+    }
+    .contact-box p { font-size: 15px; color: var(--text-secondary); margin-bottom: 1.75rem; }
+    .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero-name { font-size: 36px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card.featured { grid-column: 1; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      nav { padding: 1rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Ilias Dalbow</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-tag">Marketing · Content · Brand</div>
+  <div class="hero-name">Ilias<br><span>Dalbow</span></div>
+  <div class="hero-sub">Marketing student &amp; social media specialist who turns brands into communities — one reel at a time.</div>
+  <div class="hero-btns">
+    <a class="btn-primary" href="#work">See my work</a>
+    <a class="btn-ghost" href="#contact">Get in touch</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a Marketing student at the University of Delaware with a background in social media, content creation, and brand growth. I specialize in short-form video — Reels, Shorts, and the strategy behind them.</p>
+      <p>Beyond the camera, I bring real-world experience in restaurant management, logistics, and customer service — which shapes how I communicate and connect with any audience.</p>
+      <p>I'm bilingual, data-curious, and always chasing the next creative challenge.</p>
+    </div>
+    <div class="skills-list">
+      <div class="skill-category-label">Content & Social Media</div>
+      <div class="skill-tag"><strong>Short-form video</strong> — Reels, YouTube Shorts, Facebook</div>
+      <div class="skill-tag"><strong>Content strategy</strong> — planning, calendars, scheduling</div>
+      <div class="skill-tag"><strong>Copywriting</strong> — CTAs, captions, hooks, brand voice</div>
+      <div class="skill-tag"><strong>Community engagement</strong> — comments, DMs, audience building</div>
+      <div class="skill-tag"><strong>Platform management</strong> — Instagram, YouTube, Facebook</div>
+      <div class="skill-tag"><strong>Brand development</strong> — identity, tone, consistency</div>
+
+      <div class="skill-category-label" style="margin-top:1rem">Analytics & Tools</div>
+      <div class="skill-tag"><strong>Social analytics</strong> — reach, engagement, growth tracking</div>
+      <div class="skill-tag"><strong>Microsoft Excel</strong> — data organization & reporting</div>
+      <div class="skill-tag"><strong>R programming</strong> — data analysis</div>
+      <div class="skill-tag"><strong>Office 365</strong> — Word, PowerPoint, Outlook</div>
+      <div class="skill-tag"><strong>POS systems</strong> — Toast, Square & similar platforms</div>
+
+      <div class="skill-category-label" style="margin-top:1rem">Operations & Leadership</div>
+      <div class="skill-tag"><strong>Team supervision</strong> — staff management & scheduling</div>
+      <div class="skill-tag"><strong>Restaurant management</strong> — ops, opening/closing, financials</div>
+      <div class="skill-tag"><strong>Cash handling</strong> — transactions & reconciliation</div>
+      <div class="skill-tag"><strong>Inventory control</strong> — tracking & ordering</div>
+      <div class="skill-tag"><strong>Customer service</strong> — complaint resolution, satisfaction</div>
+      <div class="skill-tag"><strong>Bilingual</strong> — fluent English &amp; Spanish</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <h2>Work</h2>
+  <div class="work-grid">
+
+    <div class="work-card featured">
+      <div class="work-label">Freelance · 2026–Present</div>
+      <div class="work-title">Sarafina Fiber Art — Social Media</div>
+      <div class="work-desc">Built and manage the brand's entire social presence. Focus on short-form video content designed to grow organic reach, with strategic CTAs and active community engagement to turn viewers into followers and followers into customers.</div>
+      <div class="work-tags">
+        <span class="tag">Reels</span>
+        <span class="tag">YouTube Shorts</span>
+        <span class="tag">Facebook</span>
+        <span class="tag">CTAs</span>
+        <span class="tag">Brand building</span>
+      </div>
+      <div class="social-links">
+        <a class="social-btn" href="https://www.instagram.com/sarafinafiberart/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+        <a class="social-btn" href="https://www.youtube.com/@sarafinafiberart" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 8s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C15.6 3.8 12 3.8 12 3.8s-3.6 0-5.8.2c-.6.1-1.9.1-3 1.3C2.3 6 2 8 2 8S1.8 10.2 1.8 12.5v2.1c0 2.2.2 4.4.2 4.4s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C8.8 23 12 23 12 23s3.6 0 5.8-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.2-2.2.2-4.4v-2.1C22.2 10.2 22 8 22 8z"/><polygon points="10,8.5 10,15.5 16,12" fill="currentColor" stroke="none"/></svg>
+          YouTube
+        </a>
+        <a class="social-btn" href="https://www.facebook.com/sarafinafiberart" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+        <a class="social-btn" href="https://www.sarafinafiberart.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Website
+        </a>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-label">The Picklr · 2026–Present</div>
+      <div class="work-title">Social Media Marketing</div>
+      <div class="work-desc">Developing and executing content strategy for a growing recreational sports brand in Newark, DE.</div>
+      <div class="work-tags">
+        <span class="tag">Content strategy</span>
+        <span class="tag">Video</span>
+        <span class="tag">Engagement</span>
+      </div>
+      <div class="social-links">
+        <a class="social-btn" href="https://www.instagram.com/thepicklr.newark/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+        <a class="social-btn" href="https://www.youtube.com/@ThePicklrNewarkDE" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 8s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C15.6 3.8 12 3.8 12 3.8s-3.6 0-5.8.2c-.6.1-1.9.1-3 1.3C2.3 6 2 8 2 8S1.8 10.2 1.8 12.5v2.1c0 2.2.2 4.4.2 4.4s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C8.8 23 12 23 12 23s3.6 0 5.8-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.2-2.2.2-4.4v-2.1C22.2 10.2 22 8 22 8z"/><polygon points="10,8.5 10,15.5 16,12" fill="currentColor" stroke="none"/></svg>
+          YouTube
+        </a>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-label">University of Delaware · 2025</div>
+      <div class="work-title">BS Marketing — In Progress</div>
+      <div class="work-desc">Studying consumer behavior, brand management, and digital marketing at UD's Lerner College of Business.</div>
+      <div class="work-tags">
+        <span class="tag">Marketing</span>
+        <span class="tag">Lerner College</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-date">Jan 2026–Now</div>
+      <div>
+        <div class="exp-role">Social Media Marketing Coordinator</div>
+        <div class="exp-company">The Picklr — Newark, DE</div>
+        <ul class="exp-bullets">
+          <li>Develop and execute social media marketing strategies to grow brand awareness and engagement across platforms.</li>
+          <li>Create and manage short-form video content including Instagram Reels, YouTube Shorts, and Facebook videos.</li>
+          <li>Write compelling CTAs and captions optimized for engagement and audience growth.</li>
+          <li>Actively engage with followers and comments to foster community and build brand loyalty.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Jan 2026–Now</div>
+      <div>
+        <div class="exp-role">Freelance Social Media Manager</div>
+        <div class="exp-company">Sarafina Fiber Art — Remote</div>
+        <ul class="exp-bullets">
+          <li>Manage end-to-end social media presence with a focus on short-form content (Reels, YouTube Shorts, Facebook) to drive organic reach.</li>
+          <li>Craft strategic CTAs and engaging captions tailored to the brand's aesthetic and audience.</li>
+          <li>Build genuine community through active comment engagement and audience interaction.</li>
+          <li>Develop content calendars and posting schedules to maintain consistent brand presence across all platforms.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Aug 2025–Now</div>
+      <div>
+        <div class="exp-role">Team Member</div>
+        <div class="exp-company">The Picklr — Newark, DE</div>
+        <ul class="exp-bullets">
+          <li>Deliver exceptional customer experiences in a fast-paced recreational sports facility.</li>
+          <li>Support daily facility operations and assist guests with court reservations and equipment.</li>
+          <li>Serve as an on-the-ground resource for content ideas and behind-the-scenes footage used in social media.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Sep 2023–Now</div>
+      <div>
+        <div class="exp-role">Server &amp; Manager</div>
+        <div class="exp-company">The Naked Olive — Kennett Square, PA</div>
+        <ul class="exp-bullets">
+          <li>Provide high-quality customer service ensuring satisfaction and repeat business in a high-volume environment.</li>
+          <li>Efficiently manage order processing and food delivery in a fast-paced restaurant setting.</li>
+          <li>Address customer complaints and resolve issues swiftly to maintain positive dining experiences.</li>
+          <li>Assist with floor management, staff coordination, and opening/closing responsibilities.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Summer 2025</div>
+      <div>
+        <div class="exp-role">Warehouse &amp; Logistics Associate</div>
+        <div class="exp-company">The Tondo Group</div>
+        <ul class="exp-bullets">
+          <li>Supported daily operations at a small third-party logistics (3PL) shipping company.</li>
+          <li>Assisted with order fulfillment, inventory management, and shipment coordination.</li>
+          <li>Maintained accurate records and ensured timely, safe delivery of outbound shipments.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Feb 2020–Sep 2022</div>
+      <div>
+        <div class="exp-role">Manager</div>
+        <div class="exp-company">Pat's Pizza — Hockessin, DE</div>
+        <ul class="exp-bullets">
+          <li>Directed daily operations including opening and closing procedures for a busy local restaurant.</li>
+          <li>Managed customer and employee needs, maintaining a positive and productive work environment.</li>
+          <li>Oversaw financial transactions, cash handling, and end-of-day reconciliation ensuring accuracy and security.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Sep 2022–Mar 2023</div>
+      <div>
+        <div class="exp-role">Lot Attendant</div>
+        <div class="exp-company">Mercedes-Benz Group — West Chester, PA</div>
+        <ul class="exp-bullets">
+          <li>Maintained vehicle lot organization to support efficient sales operations.</li>
+          <li>Assisted sales associates by preparing vehicles for customer test drives.</li>
+          <li>Coordinated vehicle transfers between locations, ensuring timely and safe deliveries.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-box">
+    <h3>Let's work together</h3>
+    <p>Whether it's social strategy, content, or just a conversation — my inbox is open.</p>
+    <div class="contact-links">
+      <a class="btn-primary" href="/cdn-cgi/l/email-protection#a9c0c5c0c8da87c887cdc8c5cbc6dee9cec4c8c0c587cac6c4"><span class="__cf_email__" data-cfemail="137a7f7a72603d723d77727f717c6453747e727a7f3d707c7e">[email&#160;protected]</span></a>
+      <a class="btn-ghost" href="https://linkedin.com/in/ilias-dalbow-12282003ad" target="_blank"

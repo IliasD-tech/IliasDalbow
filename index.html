@@ -74,6 +74,9 @@ h2{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text
 .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .work-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rl);padding:1.5rem;transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s}
 .work-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+.work-card:hover{border-color:var(--border2)}
+.approach-card{transition:transform 0.2s ease,box-shadow 0.2s ease}
+.approach-card:hover{transform:translateY(4px);box-shadow:inset 0 4px 12px rgba(0,0,0,0.06)}
 .work-card.featured{grid-column:1/-1;border-color:var(--purple-light)}
 .work-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);margin-bottom:0.5rem}
 .work-title{font-size:16px;font-weight:500;margin-bottom:0.5rem}
@@ -165,26 +168,23 @@ h2{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text
     </div>
   </div>
 </section>
-  <section id="approach">
-  <h2>How I work</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
-    <div style="background:var(--bg2);border-radius:var(--rl);padding:1.5rem">
-      <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:0.75rem">01 — Listen first</div>
-      <div style="font-size:15px;font-weight:500;margin-bottom:0.5rem">What are you trying to say</div>
-      <div style="font-size:13px;color:var(--text2);line-height:1.7">I start by asking questions. What do you want this content to do, what are you trying to say, and how do you want people to feel when they see it.</div>
-    </div>
-    <div style="background:var(--bg2);border-radius:var(--rl);padding:1.5rem">
-      <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:0.75rem">02 — Define the goal</div>
-      <div style="font-size:15px;font-weight:500;margin-bottom:0.5rem">Revenue, reach, or awareness</div>
-      <div style="font-size:13px;color:var(--text2);line-height:1.7">Content without a clear goal is just noise. I want to know what success looks like before anything gets made — whether that's revenue, reach, impressions, or something else.</div>
-    </div>
-    <div style="background:var(--bg2);border-radius:var(--rl);padding:1.5rem">
-      <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:0.75rem">03 — Build together</div>
-      <div style="font-size:15px;font-weight:500;margin-bottom:0.5rem">Communicating throughout</div>
-      <div style="font-size:13px;color:var(--text2);line-height:1.7">I bring options to the table and talk through them. I stay in communication at every step so nothing comes back wrong and the final product actually reflects what they were going for.</div>
-    </div>
+  <div class="approach-card" style="background:var(--bg2);border-radius:var(--rl);padding:1.5rem">
+    <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:0.75rem">01 — Listen first</div>
+    <div style="font-size:15px;font-weight:500;margin-bottom:0.5rem">What are you trying to say</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.7">I start by asking questions. What do you want this content to do, what are you trying to say, and how do you want people to feel when they see it.</div>
   </div>
-</section>
+  <div class="approach-card" style="background:var(--bg2);border-radius:var(--rl);padding:1.5rem">
+    <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:0.75rem">02 — Define the goal</div>
+    <div style="font-size:15px;font-weight:500;margin-bottom:0.5rem">Revenue, reach, or awareness</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.7">Content without a clear goal is just noise. I want to know what success looks like before anything gets made — whether that's revenue, reach, impressions, or something else.</div>
+  </div>
+  <div class="approach-card" style="background:var(--bg2);border-radius:var(--rl);padding:1.5rem">
+    <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:0.75rem">03 — Build together</div>
+    <div style="font-size:15px;font-weight:500;margin-bottom:0.5rem">Communicating throughout</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.7">I bring options to the table and talk through them. I stay in communication at every step so nothing comes back wrong and the final product actually reflects what they were going for.</div>
+  </div>
+</div>
 <section id="work">
   <h2>Current Work</h2>
   <div class="work-grid">

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Ilias Dalbow — Social Media Marketing</title>
 <style>
+
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--purple:#7F77DD;--purple-light:#AFA9EC;--purple-xlight:#EEEDFE;--purple-dark:#3C3489;--bg:#fff;--bg2:#f5f5f3;--text:#1a1a1a;--text2:#555;--text3:#999;--border:rgba(0,0,0,0.12);--border2:rgba(0,0,0,0.22);--r:8px;--rl:12px;--cbg:#faf8f4;--ct:#1a1a1a;--ct2:#555;--ct3:#888;--sbg:rgba(0,0,0,0.05)}
 @media(prefers-color-scheme:dark){:root{--bg:#1a1a1a;--bg2:#242424;--text:#f0f0f0;--text2:#aaa;--text3:#666;--border:rgba(255,255,255,0.12);--border2:rgba(255,255,255,0.22);--cbg:#faf8f4;--ct:#1a1a1a;--ct2:#555;--ct3:#888;--sbg:rgba(0,0,0,0.05)}}
@@ -74,7 +75,7 @@ h2{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text
 .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .work-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rl);padding:1.5rem;transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s}
 .work-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.08)}
-.work-card:hover{border-color:var(--border2)}
+
 .approach-card{transition:transform 0.2s ease,box-shadow 0.2s ease}
 .approach-card:hover{transform:translateY(4px);box-shadow:inset 0 4px 12px rgba(0,0,0,0.06)}
 .work-card.featured{grid-column:1/-1;border-color:var(--purple-light)}
@@ -101,6 +102,11 @@ h2{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text
 .contact-box p{font-size:15px;color:var(--text2);margin-bottom:1.75rem}
 .contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 @media(max-width:650px){.hero-name{font-size:36px}.about-grid,.work-grid{grid-template-columns:1fr}.work-card.featured{grid-column:1}.exp-item{grid-template-columns:1fr;gap:0.25rem}nav{padding:1rem}.nav-links{gap:0.75rem}}
+
+.approach-card{transition:transform 0.2s ease,box-shadow 0.2s ease}
+.approach-card:hover{transform:translateY(4px);box-shadow:inset 0 4px 12px rgba(0,0,0,0.06)}
+.work-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rl);padding:1.5rem;transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s}
+.work-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.08)}
 </style>
 </head>
 <body>
@@ -110,12 +116,7 @@ h2{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text
    <a href="#about">About</a><a href="#approach">Approach</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
   </div>
 </nav>
-<section class="hero" id="top">
-  <div class="hero-tag">Social Media · Content Strategy · Brand Growth</div>
-  <div class="hero-name">Ilias<br><span>Dalbow</span></div>
-  <div class="hero-sub">I make content strategies and grow social media accounts for businesses. I fell into it, got good at it, and now I manage social media for real clients, and the numbers speak for themselves.</div>
-  <div class="hero-btns"><a class="btn-primary" href="#work">See my work</a><a class="btn-ghost" href="#contact">Get in touch</a></div>
-</section>
+
 <section id="about">
   <h2>About</h2>
   <div class="about-grid">
@@ -144,7 +145,9 @@ h2{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text
         </div>
       </div>
     </div>
+
     <div class="skills-list">
+      <div class="skills-list">
       <div class="skill-cat">Content &amp; Social Media</div>
       <div class="skill-tag"><strong>Short-form video</strong> — Reels, YouTube Shorts, Facebook</div>
       <div class="skill-tag"><strong>Content strategy</strong> — planning, calendars, scheduling</div>
@@ -167,8 +170,8 @@ h2{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text
       <div class="skill-tag"><strong>Bilingual</strong> — fluent English &amp; Greek</div>
     </div>
   </div>
-</section>
- <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;max-width:900px;margin:0 auto">
+      <div class="skill-cat" style="margin-top:1.5rem">How I work</div>
+<div style="display:flex;flex-direction:column;gap:8px;margin-top:1.5rem">
   <div class="approach-card" style="background:var(--bg2);border-radius:var(--rl);padding:1.5rem">
     <div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:0.75rem">01 — Listen first</div>
     <div style="font-size:15px;font-weight:500;margin-bottom:0.5rem">What are you trying to say</div>
@@ -185,6 +188,10 @@ h2{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text
     <div style="font-size:13px;color:var(--text2);line-height:1.7">I bring options to the table and talk through them. I stay in communication at every step so nothing comes back wrong and the final product actually reflects what they were going for.</div>
   </div>
 </div>
+    </div>
+  </div>
+</section>
+
 <section id="work">
   <h2>Current Work</h2>
   <div class="work-grid">
@@ -257,5 +264,6 @@ runCounters(0);
 <footer style="text-align:center;padding:2rem;font-size:12px;color:var(--text3);border-top:0.5px solid var(--border)">
 Built with <a href="https://claude.ai" target="_blank" rel="noopener" style="color:var(--purple);text-decoration:none">Claude</a>
 </footer>
+
 </body>
 </html>
